@@ -1,36 +1,73 @@
-
-CREATE TABLE Students (
-    student_id INT,
-    name VARCHAR(50),
-    city VARCHAR(50),
-    percentage DECIMAL(5,2)
+CREATE TABLE customer_orders (
+    order_id SERIAL PRIMARY KEY,
+    customer_name VARCHAR(50),
+    product VARCHAR(50),
+    quantity INT,
+    price NUMERIC(10,2),
+    order_date DATE
 );
-INSERT INTO Students VALUES
-(1, 'Amit', 'Delhi', 96.5),
-(2, 'Riya', 'Mumbai', 94.2),
-(3, 'Rahul', 'Delhi', 97.8),
-(4, 'Sneha', 'Mumbai', 98.1),
-(5, 'Ankit', 'Chandigarh', 95.6),
-(6, 'Pooja', 'Delhi', 93.4),
-(7, 'Karan', 'Chandigarh', 96.2);
 
------ without case statment 
-select city , count (*) as student_count from Students
-where percentage>95
-group by city;
+INSERT INTO customer_orders (customer_name, product, quantity, price, order_date) VALUES
+('Amit', 'Laptop', 1, 60000, '2025-01-05'),
+('Riya', 'Mobile', 2, 30000, '2025-01-06'),
+('Suresh', 'Laptop', 1, 65000, '2025-01-07'),
+('Neha', 'Tablet', 3, 15000, '2025-01-08'),
+('Ankit', 'Mobile', 1, 20000, '2025-01-09'),
+('Pooja', 'Tablet', 2, 12000, '2025-01-10');
 
------- with case statment 
-select city , sum(case when percentage >95 then 1 else 0 end ) as Student_count
-from Students 
-group by city ;
+Select * from customer_orders;
 
------(2)  with case statment 
-select city , Avg (case when percentage > 95 then percentage else null end) as Student_Avg
-from Students
-group by city 
-ORDER BY STUDENT_AVG DESC;
+---2
+SELECT * 
+FROM customer_orders
+WHERE price > 25000;
 
------- without case statment 
-select city , avg (percentage) as student_Avg from Students
-where percentage >95
-group by city;
+
+SELECT *
+FROM customer_orders
+WHERE 
+    CASE 
+        WHEN Price > 25000 THEN 1
+        ELSE 0
+    END = 1;
+
+---3
+
+--Sort by Price (Ascending)
+SELECT customer_name, product, price
+FROM customer_orders
+ORDER BY price ASC;
+
+--Sort by Price (Descending)
+SELECT customer_name, product, price
+FROM customer_orders
+ORDER BY price DESC;
+
+--Sort by Product, then Price
+SELECT customer_name, product, price
+FROM customer_orders
+ORDER BY product ASC, price DESC;
+
+
+---4  Total Sales Per Product
+
+SELECT product, SUM(price * quantity) AS total_sales
+FROM customer_orders
+GROUP BY product;
+
+---5
+SELECT product, SUM(price * quantity) AS total_sales
+FROM customer_orders
+GROUP BY product
+HAVING SUM(price * quantity) > 50000;
+
+
+---6
+SELECT product, SUM(price)
+FROM customer_orders
+GROUP BY product
+HAVING SUM(price) > 50000;
+
+
+
+
