@@ -8,7 +8,7 @@
 - Section: MAM-1 A  
 - Semester: Second Semester  
 - Subject: Technical Skills  
-- Date of Performance: 12/01/2026  
+- Date of Performance: 13/01/2026  
 
 ---
 
