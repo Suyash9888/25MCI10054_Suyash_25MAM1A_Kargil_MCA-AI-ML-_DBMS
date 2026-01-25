@@ -54,7 +54,7 @@ SET salary = 45000
 WHERE emp_id = 101;
 
 DELETE FROM Project
-WHERE project_id = 201;
+WHERE dept_id = 2;
 
 CREATE ROLE report_user LOGIN PASSWORD 'report123';
 
