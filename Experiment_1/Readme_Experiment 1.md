@@ -1,5 +1,5 @@
 
-# Experiment 01.1 – DDL, DML and DCL Operations in SQL
+# Experiment 1 – DDL, DML and DCL Operations in SQL
 
 ---
 
@@ -15,35 +15,35 @@
 
 ---
 
-## Experiment Title
+##  Aim of the Session 
 
-**Design and Implementation of a Sample Database System using DDL, DML, and DCL Commands**
-
----
-
-## Aim
-
-To design and implement a sample database system using Data Definition Language (DDL), Data Manipulation Language (DML), and Data Control Language (DCL) commands, including database creation, data manipulation, schema modification, and role-based access control to ensure data integrity and secure, read-only access for authorized users.
+To design and implement a sample database system using DDL, DML, and DCL commands for managing departments, employees, and projects, and to apply role-based access control for secure data handling.
 
 ---
 
 ## Software Requirements
-
-- Oracle Database Express Edition  
+  
 - PostgreSQL  
 - pgAdmin  
-
+- Windows Operating System  
 ---
 
 ## Objectives
-
-- To gain practical experience with DDL, DML, and DCL commands  
-- To design relational tables with constraints  
-- To implement secure role-based access control  
-- To understand schema modification techniques  
-- To maintain referential integrity in databases  
-
+- To understand the use of DDL commands to create and modify database structures.  
+- To perform DML operations such as INSERT, UPDATE, DELETE, and SELECT.  
+- To implement relationships using primary and foreign keys.  
+- To apply DCL commands to manage roles and privileges.  
+- To analyze input and output of SQL queries in a real database environment.  
 ---
+
+##  Practical / Experiment Steps
+- Design the database schema for Department, Employee, and Project tables.  
+- Create tables using appropriate constraints.  
+- Insert sample records into tables.  
+- Perform update and delete operations.  
+- Retrieve data using SELECT queries.  
+- Create a role and grant and revoke privileges.  
+- Alter and drop database objects.  
 
 # Database Design
 
@@ -62,6 +62,7 @@ The database is designed to manage **Departments, Employees, and Projects** with
 - CHECK  
 
 ---
+# ⚙️ **Procedure of the Practical**
 
 # Step 1: Table Creation (DDL)
 
@@ -107,14 +108,6 @@ CREATE TABLE Project (
 
 ---
 
-## Output
-
-```
-
-```
-
----
-
 # Step 2: Data Manipulation (DML)
 
 ### Insert Records
@@ -130,7 +123,7 @@ INSERT INTO Department VALUES
 (5, 'Operations', 'Chennai');
 
 ```
-
+![Data Visualization](images/dept.png)
 ---
 
 #### Employees
@@ -145,7 +138,7 @@ INSERT INTO Employee VALUES
 (106, 'Sneha', 'sneha@org.com', 36000, 5),
 (107, 'Anjali', 'anjali@org.com', 47000, 2);
 ```
-
+![Data Visualization](images/emp.png)
 ---
 
 #### Projects
@@ -163,10 +156,6 @@ INSERT INTO Project VALUES
 ---
 
 ![Data Visualization](images/projects.png)
-![Data Visualization](images/dept.png)
-![Data Visualization](images/emp.png)
-
-
 
 ---
 
@@ -180,8 +169,6 @@ SET salary = 45000
 WHERE emp_id = 101;
 ```
 ![Data Visualization](images/change.png)
-
-
 
 ---
 
@@ -264,7 +251,27 @@ DROP TABLE Projects;
 
 ![Data Visualization](images/schema.png)
 ---
+## 📥📤 I/O Analysis (Input / Output)
 
+### 🔹 Input
+- Department, Employee, and Project table creation queries  
+- Records inserted into all tables using INSERT commands  
+- Update query to modify employee department  
+- Delete queries to remove project and employee records  
+- Role creation and privilege assignment queries  
+- ALTER and DROP table commands  
+
+### 🔹 Output
+- Department, Employee, and Project tables created successfully  
+- Records inserted, updated, and deleted correctly  
+- Referential integrity maintained between tables  
+- Data displayed correctly using SELECT queries  
+- Role-based access verified using GRANT and REVOKE  
+- Table structure modified and Project table dropped successfully  
+
+📸 Screenshots of execution and obtained results are attached.
+
+---
 # Learning Outcomes
 
 - Understood the basics of relational database design using tables, keys, and relationships.  
@@ -279,5 +286,3 @@ DROP TABLE Projects;
 ## Conclusion
 
 This experiment provided practical exposure to core SQL concepts including DDL, DML, and DCL commands. It strengthened understanding of database security, referential integrity, and schema management, which are essential for real-world enterprise database systems.
-
----

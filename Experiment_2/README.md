@@ -7,7 +7,7 @@
 - Branch: MCA (AI & ML)  
 - Section: MAM-1 A  
 - Semester: Second Semester  
-- Subject: Technical Skills  
+- Subject: DBMS Lab  
 - Date of Performance: 13/01/2026  
 
 ---
@@ -18,7 +18,9 @@ To design and implement a sample database system using SQL commands to perform f
 ---
 
 ## Software Requirements
-- PostgreSQL  
+- PostgreSQL (Database Server)  
+- pgAdmin
+- Windows Operating System  
 
 ---
 
@@ -30,6 +32,17 @@ To design and implement a sample database system using SQL commands to perform f
 - Understand real-world analytical SQL queries  
 
 ---
+## **Practical / Experiment Steps**  
+- Create a sample table representing customer orders  
+- Insert realistic records into the table  
+- Retrieve filtered data using WHERE clause  
+- Sort query results using ORDER BY  
+- Group records and apply aggregate functions  
+- Apply conditions on grouped data using HAVING  
+- Analyze execution order of WHERE and HAVING clauses  
+
+---
+# **Procedure of the Practical**
 
 ## Step 1: Table Creation
 
@@ -106,7 +119,7 @@ SELECT customer_name, product, price FROM customer_orders ORDER BY product ASC, 
 ## Step 4: Grouping and Aggregation
 
 ```sql
-SELECT product, SUM(price * quantity) AS total_sales
+SELECT product, Count(*) AS total_sales
 FROM customer_orders
 GROUP BY product;
 ```
@@ -117,7 +130,7 @@ GROUP BY product;
 
 ---
 
-## Step 5: Conditions on Aggregated Data
+## Step 5: Conditions on Aggregated Data (Having)
 
 
 ```sql
@@ -131,8 +144,19 @@ HAVING SUM(price * quantity) > 50000;
 ![Data Visualization](images/having.png)
 
 ---
+## Step 6: Using WHERE and HAVING Together
 
-## Step 6: Incorrect vs Correct Aggregation
+```sql
+select product, sum(quantity*price) as total_revenue
+from customer_orders
+where order_date >= '2025-01-01'
+group by product
+having sum(quantity*price) > 50000;
+```
+### Output:
+![Data Visualization](images/whereHaving.png)
+--
+## Step 7: Incorrect vs Correct Aggregation
 
 ### Incorrect
 ```sql
@@ -151,6 +175,23 @@ HAVING SUM(price) > 50000;
 ```
 
 ![Data Visualization](images/correct.png)
+--
+
+## I/O Analysis (Input / Output)
+
+### Input
+- Customer order details  
+- Filtering, sorting, grouping, and aggregation queries  
+
+### Output
+- Filtered customer records  
+- Sorted result sets  
+- Group-wise sales summary  
+- Aggregated revenue reports  
+
+📸 Screenshots of execution and output are attached in this repository.
+
+---
 
 ## Learning Outcomes
 - Ability to create relational database tables
@@ -164,3 +205,9 @@ HAVING SUM(price) > 50000;
 
 ## Conclusion
 This experiment enhanced understanding of SQL analytical queries including filtering, sorting, grouping, and aggregation, which are essential for real-world database applications and interviews.
+
+## 📂 **Repository Contents**
+- README.md  
+- Worksheet (Word & PDF)  
+- SQL Queries  
+- Screenshots  

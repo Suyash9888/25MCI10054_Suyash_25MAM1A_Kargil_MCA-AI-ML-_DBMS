@@ -51,7 +51,7 @@ ORDER BY product ASC, price DESC;
 
 ---4  Total Sales Per Product
 
-SELECT product, SUM(price * quantity) AS total_sales
+SELECT product, Count(*) AS total_sales
 FROM customer_orders
 GROUP BY product;
 
@@ -61,8 +61,22 @@ FROM customer_orders
 GROUP BY product
 HAVING SUM(price * quantity) > 50000;
 
-
 ---6
+select product, sum(quantity*price) as total_revenue
+from customer_orders
+where order_date >= '2025-01-01'
+group by product
+having sum(quantity*price) > 70000;
+
+---7
+
+--Incorrect Query
+SELECT product, SUM(price)
+FROM customer_orders
+WHERE SUM(price) > 50000
+GROUP BY product;
+
+--Corrected Query
 SELECT product, SUM(price)
 FROM customer_orders
 GROUP BY product
