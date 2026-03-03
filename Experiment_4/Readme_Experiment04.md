@@ -1,4 +1,4 @@
-# Experiment 03 –  Iterative Control Structures in PostgreSQL
+# Experiment 04 –  Iterative Control Structures in PostgreSQL
 
 ## Student Information
 - Name: Suyash  
