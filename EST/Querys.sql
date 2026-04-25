@@ -24,6 +24,10 @@ EXECUTE FUNCTION update_product_stock();
 
 
 
+INSERT INTO Tbl_Orders (order_id, prod_id, cust_id, order_date, qty)
+VALUES (9004, 501, 103, '2026-04-25', 2);
+
+select * from Tbl_Products;
 
 ----table creation 
 CREATE TABLE Tbl_Products (
